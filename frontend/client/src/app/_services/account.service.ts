@@ -13,9 +13,9 @@ export class AccountService {
   private currentUserSource : BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
   currentUser$  = this.currentUserSource.asObservable();
 
-  constructor(private httpClient : HttpClient) { 
+  constructor(private httpClient : HttpClient) {}
 
-  }
+  
   login(model: any) {
     return this.httpClient.post<User>(this.baseUrl + 'accounts/login',model).pipe(
       map((res: User) => {
@@ -26,6 +26,18 @@ export class AccountService {
         }
     })
     )
+  }
+
+  register(model: any) {
+    return this.httpClient.post<User>(this.baseUrl + 'accounts/register' , model).pipe(
+      map(user => {
+        if (user){
+          localStorage.setItem('user' , JSON.stringify(user));
+          this.currentUserSource.next(user);
+        }
+        return user;
+      })
+    );
   }
 
   setCurrentUser(user: User) {
