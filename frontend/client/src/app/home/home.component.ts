@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../_services/account.service';
+
 
 @Component({
   selector: 'app-home',
@@ -14,10 +13,10 @@ export class HomeComponent implements OnInit {
   users: any;
 
 
-  constructor(private http : HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getUsers();
+    
   }
 
   registerToggle() {
@@ -26,15 +25,5 @@ export class HomeComponent implements OnInit {
 
   cancelRegisterMode(event: boolean) {
     this.registerMode = event;
-  }
-  
-  getUsers() {
-    this.http.get('https://localhost:5001/api/users').subscribe({
-      next: (res) => {
-        this.users = res;
-      },
-      error: (error) => {console.log(error)},
-      complete : () => {console.log('Request Complete.')}
-    });
   }
 }
