@@ -1,8 +1,8 @@
 <h4>Internal Server Error - refreshing the page will make the error disappear</h4>
 
-<ng-container *ngIf="errorMsg">
+<ng-container *ngIf="error">
   <h5 class="text-bg-danger">
-    {{errorMsg}}
+    {{error.message}}
   </h5>
   <p class="font-weight-bold">
     Note : If you seeing this than angular is not to blame...
@@ -16,6 +16,6 @@
   <p style="font-weight: bold;">look at stack trace .</p>
   
   <code class="mt-5" style="background-color: whitesmoke;">
-    {{errorMsg}}
+    {{error.details}}
   </code>
 </ng-container>

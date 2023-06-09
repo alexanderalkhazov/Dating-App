@@ -22,13 +22,13 @@ export class ErrorInterceptor implements HttpInterceptor {
           switch (error.status) {
             case 400:
               if (error.error.errors) {
-                const modelStateErros = [];
+                const modelStateErrors = [];
                 for (const key in error.error.errors) {
                   if (error.error.errors[key]) {
-                    modelStateErros.push(error.error.errors[key]);
+                    modelStateErrors.push(error.error.errors[key]);
                   }
                 }
-                throw modelStateErros.flat();
+                throw modelStateErrors.flat();
               }
               else {
                 this.toastrService.error(error.error, error.status.toString());
@@ -41,7 +41,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.router.navigateByUrl('/not-found');
               break;
             case 500:
-              const navigationsExtras: NavigationExtras = {state: {error : error.error}};
+              const navigationsExtras: NavigationExtras = { state: { error: error.error } };
               this.router.navigateByUrl('/server-error', navigationsExtras);
               break;
             default:
