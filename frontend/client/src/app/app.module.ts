@@ -24,6 +24,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DataPickerComponent } from './_forms/data-picker/data-picker.component';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { DataPickerComponent } from './_forms/data-picker/data-picker.component'
     PhotoEditorComponent,
     TextInputComponent,
     DataPickerComponent,
+    MemberMessagesComponent
   ],
   imports: [
     BrowserModule,

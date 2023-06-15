@@ -21,11 +21,7 @@ namespace API.Entities
         public List<Photo> Photos {get; set;} = new ();
         public List<UserLike> LikedByUsers {get; set;}  // who liked the user
         public List<UserLike> LikedUsers {get; set;}  //  liked users
-
-        // public int GetAge() 
-        // {
-        //     return DateOfBirth.CalculateAge();
-        // }
-        
+        public List<Message> MessagesSent {get; set;}
+        public List<Message> MessagesReceived {get; set;} 
     }
 }
