@@ -19,11 +19,12 @@
             <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
           </li>
         </ng-container>
-        <!-- test link -->
-        <li class="nav-item">
+     
+        <!-- Used To Test Buggy Control -->
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
-        </li>
-        <!-- 0-0 -->
+        </li> -->
+       
       </ul>
 
       <div dropdown class="dropdown" *ngIf="(accountService.currentUser$ | async) as User">
