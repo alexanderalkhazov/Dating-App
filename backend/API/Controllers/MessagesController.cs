@@ -69,10 +69,10 @@ namespace API.Controllers
       var message = await _messageRepository.GetMessage(id);
 
       if (message.SenderUserName != username && message.RecipientUserName != username)
-      return Unauthorized();
+        return Unauthorized();
 
       if (message.SenderUserName == username) message.SenderDeleted = true;
-      if (message.RecipientUserName == username)  message.RecipientDeleted = true;
+      if (message.RecipientUserName == username) message.RecipientDeleted = true;
 
       if (message.SenderDeleted && message.RecipientDeleted)
       {
