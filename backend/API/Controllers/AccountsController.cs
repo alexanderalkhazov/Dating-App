@@ -1,4 +1,3 @@
-using API.Data;
 using API.Dtos;
 using API.Entities;
 using API.Interfaces;
@@ -9,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-  public class AccountsController : BaseApiController
+    public class AccountsController : BaseApiController
   {
     private readonly UserManager<AppUser> _userManager;
     private readonly ITokenService _tokenService;
